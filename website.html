@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CyberShield AI | Fraud Detection & Cybersecurity</title>
+  <!-- Google Fonts + Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F0F4F8;
+      color: #0A1C2A;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #CBDCE8;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #0A2647, #1B4F72);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .logo i {
+      background: none;
+      color: #1F6392;
+      font-size: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1E3A5F;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #0F6B9C;
+    }
+
+    .btn-primary {
+      background: #0F5C8F;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.6rem;
+      font-weight: 600;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #0A3F62;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(15,92,143,0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #0F5C8F;
+      color: #0F5C8F;
+      padding: 0.6rem 1.5rem;
+      font-weight: 600;
+      border-radius: 40px;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background: #0F5C8F;
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      padding: 3rem 0 4rem;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      background: #E2F0F7;
+      color: #116B9B;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #0B5E7E, #1A8FBB);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #2C4B6E;
+      margin: 1.5rem 0;
+      max-width: 550px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0F5C8F;
+    }
+
+    .hero-image {
+      flex: 0.9;
+      background: linear-gradient(145deg, #E9F2F9, #FFFFFF);
+      border-radius: 2.5rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    /* Cyber Attacks Grid (Homepage) */
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #0A2B3C;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 2.5rem auto;
+      color: #3D637F;
+      font-size: 1.1rem;
+    }
+
+    .attack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+
+    .attack-card {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.8rem;
+      transition: all 0.25s;
+      border: 1px solid #DAE9F2;
+      box-shadow: 0 8px 12px -6px rgba(0,0,0,0.03);
+    }
+
+    .attack-card:hover {
+      transform: translateY(-6px);
+      border-color: #80B5DC;
+      box-shadow: 0 20px 28px -12px rgba(15,92,143,0.15);
+    }
+
+    .attack-icon {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .attack-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    .attack-card p {
+      color: #4B6A88;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .risk-badge {
+      display: inline-block;
+      background: #FEE2E2;
+      color: #B91C1C;
+      border-radius: 40px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .risk-high {
+      background: #FFEDD5;
+      color: #C2410C;
+    }
+
+    /* Services / Features */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 1.6rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: 0.2s;
+      border: 1px solid #E2EDF5;
+    }
+
+    .service-card i {
+      font-size: 2.8rem;
+      color: #1F6E9F;
+      margin-bottom: 1rem;
+    }
+
+    /* AI Chat Box (Floating) */
+    .chat-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1000;
+    }
+
+    .chat-toggle {
+      background: #0F5C8F;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+      transition: 0.2s;
+      border: none;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .chat-toggle:hover {
+      background: #0A486F;
+      transform: scale(1.05);
+    }
+
+    .chat-window {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 2rem;
+      width: 380px;
+      height: 520px;
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: all 0.2s ease;
+      border: 1px solid #BCD3E8;
+      z-index: 1001;
+    }
+
+    .chat-hidden {
+      display: none;
+    }
+
+    .chat-header {
+      background: #0A2B3C;
+      color: white;
+      padding: 1rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      background: #F9FDFF;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .bot-msg, .user-msg {
+      max-width: 85%;
+      padding: 0.7rem 1rem;
+      border-radius: 1.2rem;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .bot-msg {
+      background: #E9F1F9;
+      color: #0A2B3C;
+      align-self: flex-start;
+      border-bottom-left-radius: 0.2rem;
+    }
+
+    .user-msg {
+      background: #0F5C8F;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 0.2rem;
+    }
+
+    .chat-input-area {
+      display: flex;
+      padding: 0.8rem;
+      border-top: 1px solid #DCEAF3;
+      background: white;
+      gap: 0.5rem;
+    }
+
+    .chat-input-area input {
+      flex: 1;
+      padding: 0.7rem;
+      border: 1px solid #C5DCEF;
+      border-radius: 2rem;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .chat-input-area button {
+      background: #0F5C8F;
+      border: none;
+      color: white;
+      border-radius: 2rem;
+      width: 44px;
+      cursor: pointer;
+    }
+
+    /* Contact section */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: #FFFFFF;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin-top: 2rem;
+      border: 1px solid #D2E3F0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    }
+
+    .contact-form {
+      flex: 1.2;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.9rem;
+      margin-bottom: 1rem;
+      border: 1px solid #C9DFEE;
+      border-radius: 1.2rem;
+      font-family: inherit;
+      background: #FEFEFE;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #EAF1F8;
+      margin-top: 4rem;
+      color: #1F5880;
+    }
+
+    @media (max-width: 780px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .chat-window {
+        width: 310px;
+        right: 1rem;
+        bottom: 5rem;
+      }
+      .container {
+        padding: 0 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="container">
+  <div class="navbar">
+    <div class="logo"><i class="fas fa-shield-haltered"></i> CyberShield<span style="color:#1A6F9F;">AI</span></div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#attack-library">Attack Library</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-primary"><i class="fas fa-lock"></i> Get Protected</a>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <section id="home" class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-microchip"></i> AI-Powered Fraud Detection</div>
+        <h1>Stop cyber fraud before <span class="gradient-text">it impacts you</span></h1>
+        <p>Real-time threat detection, intelligent AI chatbot, and complete cyber attack intelligence. We safeguard your digital assets 24/7/365.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#contact" class="btn-primary"><i class="fas fa-comment"></i> Talk to AI Analyst</a>
+          <a href="#attack-library" class="btn-outline">Explore Threats →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><h3>99.8%</h3><span>Detection Rate</span></div>
+          <div class="stat"><h3>< 90s</h3><span>Avg. Alert Time</span></div>
+          <div class="stat"><h3>1200+</h3><span>Businesses Secured</span></div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-shield-virus" style="font-size: 6rem; color:#1C6C9B; opacity:0.9;"></i>
+        <p style="margin-top: 1rem;"><strong>AI Neural Fraud Firewall</strong> active</p>
+        <div style="font-size: 0.8rem; margin-top: 0.5rem;">Real-time anomaly blocking</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive Cyber Attack Library (Homepage) -->
+  <section id="attack-library" class="container" style="padding: 2rem 0 3rem;">
+    <h2 class="section-title">⚠️ Complete Cyber Attack Encyclopedia</h2>
+    <p class="section-sub">Understand the threats — from phishing to zero‑days. Our AI detects and mitigates each attack vector instantly.</p>
+    <div class="attack-grid">
+      <div class="attack-card">
+        <div class="attack-icon"><i class="fas fa-envelope-open-text"></i></div>
+        <h3>Phishing & Spear Phishing</h3>
+        <p>Fake emails, malicious links, and social engineering. Our AI scans URLs, headers, and linguistic cues to block 99.5% of phishing attempts.</p>
+        <span class="risk-badge">+341% YoY</span>
+      </div>
+      <div class="attack-card">
+        <div class="attack-icon"><i class="fas fa-skull-crossbones"></i></div>
+        <h3>Ransomware</h3>
+        <p>Malware that encrypts critical data and demands ransom. Behavioral AI detects encryption patterns and isolates endpoints automatically.</p>
+        <span class="risk-badge risk-high">Critical threat</span>
+      </div>
+      <div class="attack-card">
+        <div class="attack-icon"><i class="fas fa-credit-card"></i></div>
+        <h3>Payment Fraud / Wire Fraud</h3>
+        <p>Unauthorized transactions, invoice manipulation & synthetic IDs. Real-time transaction vetting & velocity checks prevent losses.</p>
+        <span class="risk-badge">Financial risk</span>
+      </div>
+      <div class="attack-card">
+        <div class="attack-icon"><i class="fas fa-user-secret"></i></div>
+        <h3>Account Takeover (ATO)</h3>
+        <p>Credential stuffing & brute force. Biometric fingerprinting + device intelligence blocks unauthorized access.</p>
+        <span class="risk-badge risk-high">Very common</span>
+      </div>
+      <div class="attack-card">
+        <div class="attack-icon"><i class="fas fa-bug"></i></div>
+        <h3>Zero-Day Exploits</h3>
+        <p>Unknown vulnerabilities used by attackers. Heuristic sandboxing & anomaly prediction blocks zero-day malware.</p>
+        <span class="risk-badge">Advanced defense</span>
+      </div>
+      <div class="attack-card">
+        <div class="attack-icon"><i class="fas fa-database"></i></div>
+        <h3>Data Breach & Exfiltration</h3>
+        <p>Sensitive data leakage. Dark web monitoring, DLP rules, and instant credential revocation.</p>
+        <span class="risk-badge">Automated response</span>
+      </div>
+      <div class="attack-card">
+        <div class="attack-icon"><i class="fas fa-wifi"></i></div>
+        <h3>Man-in-the-Middle (MITM)</h3>
+        <p>Interception of communications. Our encrypted tunnel detection & certificate validation neutralizes MITM.</p>
+        <span class="risk-badge">Network level</span>
+      </div>
+      <div class="attack-card">
+        <div class="attack-icon"><i class="fas fa-robot"></i></div>
+        <h3>Deepfake & AI Fraud</h3>
+        <p>Synthetic voice/video used for impersonation. AI-driven liveness detection & media provenance checks.</p>
+        <span class="risk-badge">Emerging</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services & AI Chatbot Feature -->
+  <section id="services" class="container" style="padding: 1rem 0 3rem;">
+    <h2 class="section-title">🛡️ Our Cybersecurity Arsenal</h2>
+    <p class="section-sub">AI chatbot + enterprise fraud detection combined for non‑stop protection.</p>
+    <div class="services-grid">
+      <div class="service-card"><i class="fas fa-comment-dots"></i><h3>AI Fraud Chatbot</h3><p>24/7 intelligent assistant answers security questions, analyzes suspicious activities, and guides incident response.</p></div>
+      <div class="service-card"><i class="fas fa-chart-network"></i><h3>Live Threat Intelligence</h3><p>Real-time dashboard with attack heatmaps, IOC feeds, and emerging ransomware families.</p></div>
+      <div class="service-card"><i class="fas fa-bolt"></i><h3>Automated Incident Response</h3><p>Isolates compromised hosts, revokes sessions, and notifies your team within seconds.</p></div>
+      <div class="service-card"><i class="fas fa-shield-haltered"></i><h3>Cyber Risk Assessment</h3><p>AI-driven vulnerability scan + personalized security roadmap.</p></div>
+    </div>
+  </section>
+
+  <!-- Contact & Free Risk Assessment -->
+  <section id="contact" class="container" style="padding-bottom: 3rem;">
+    <h2 class="section-title">📡 Ready to fortify your business?</h2>
+    <p class="section-sub">Request a free fraud risk assessment + live AI chatbot demo.</p>
+    <div class="contact-flex">
+      <div class="contact-form">
+        <form id="securityLeadForm">
+          <input type="text" id="fullName" placeholder="Full name *" required>
+          <input type="email" id="emailId" placeholder="Business email *" required>
+          <input type="text" id="company" placeholder="Company name">
+          <textarea rows="3" id="concern" placeholder="Describe any security concerns or past incidents..."></textarea>
+          <button type="submit" class="btn-primary" style="width:100%;"><i class="fas fa-shield-alt"></i> Request Consultation</button>
+          <div id="formFeedback" style="margin-top: 0.8rem; font-size:0.8rem; text-align:center;"></div>
+        </form>
+      </div>
+      <div style="flex:0.8; background:#F1F7FD; border-radius:1.6rem; padding:1.6rem;">
+        <i class="fas fa-headset" style="font-size:2.2rem; color:#1A6F9F;"></i>
+        <h3 style="margin: 1rem 0 0.5rem;">AI Security Assistant</h3>
+        <p>Click the blue chat bubble on the bottom-right. Ask about ransomware, phishing defenses, or how our detection works — the AI is trained on MITRE ATT&CK, OWASP, and real fraud data.</p>
+        <div style="margin-top: 1rem;"><i class="fas fa-clock"></i> 24/7 real-time replies</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 CyberShield AI — Next‑Gen Cyber Fraud Detection & Intelligence. Protecting what matters most.</p>
+  <p style="margin-top: 0.5rem;"><i class="fas fa-robot"></i> AI‑powered chatbot | Real‑time threat defense | Zero‑trust architecture</p>
+</footer>
+
+<!-- Floating AI Chatbot (Fully Functional) -->
+<div class="chat-container">
+  <button class="chat-toggle" id="chatToggleBtn"><i class="fas fa-comment"></i></button>
+  <div id="chatWindow" class="chat-window chat-hidden">
+    <div class="chat-header">
+      <span><i class="fas fa-microchip"></i> CyberShield AI Assistant</span>
+      <button id="closeChatBtn" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.2rem;">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="bot-msg">🛡️ Hello! I'm CyberShield AI, your fraud detection expert. Ask me about phishing, ransomware, account takeover, or how we detect zero-day threats. I'm here 24/7!</div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Ask about any cyber attack...">
+      <button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---------- AI Chatbot logic (intelligent threat responses) ----------
+  const chatMessagesDiv = document.getElementById('chatMessages');
+  const chatInputField = document.getElementById('chatInput');
+  const sendChat = document.getElementById('sendChatBtn');
+  const chatWindowDiv = document.getElementById('chatWindow');
+  const chatToggleBtn = document.getElementById('chatToggleBtn');
+  const closeChatBtn = document.getElementById('closeChatBtn');
+
+  function toggleChatWindow(forceShow) {
+    if (forceShow === true) chatWindowDiv.classList.remove('chat-hidden');
+    else if (forceShow === false) chatWindowDiv.classList.add('chat-hidden');
+    else chatWindowDiv.classList.toggle('chat-hidden');
+  }
+
+  chatToggleBtn.addEventListener('click', () => toggleChatWindow());
+  closeChatBtn.addEventListener('click', () => toggleChatWindow(false));
+
+  function appendChatMessage(text, isUser) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = isUser ? 'user-msg' : 'bot-msg';
+    msgDiv.innerText = text;
+    chatMessagesDiv.appendChild(msgDiv);
+    chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+  }
+
+  function getAIResponse(userMessage) {
+    const lowerMsg = userMessage.toLowerCase();
+    if (lowerMsg.includes('phish') || lowerMsg.includes('phishing')) {
+      return "🎣 Phishing attacks deceive users into revealing credentials. CyberShield AI inspects links, email headers, and uses NLP to detect social engineering. We block 99.5% of phishing emails before they hit inboxes.";
+    } else if (lowerMsg.includes('ransomware')) {
+      return "💀 Ransomware encrypts files & demands payment. Our AI monitors for unusual file modifications & known ransomware behaviors, then automatically quarantines affected endpoints to stop the spread.";
+    } else if (lowerMsg.includes('account takeover') || lowerMsg.includes('ato')) {
+      return "🔐 Account takeover (ATO) happens via credential stuffing. We deploy behavioral biometrics (typing patterns, mouse movements) and device fingerprinting to detect anomalies and block unauthorized logins.";
+    } else if (lowerMsg.includes('payment fraud') || lowerMsg.includes('wire fraud')) {
+      return "💰 Payment fraud detection: real-time transaction monitoring, geolocation velocity, and synthetic ID checks. Our AI flags suspicious transfers and can auto-reverse with your approval rules.";
+    } else if (lowerMsg.includes('zero-day')) {
+      return "🐞 Zero-day exploits target unknown vulnerabilities. We use sandboxed execution & heuristic analysis to detect malicious patterns, even without prior signatures.";
+    } else if (lowerMsg.includes('data breach') || lowerMsg.includes('exfiltr')) {
+      return "📀 Data breach prevention: DLP policies, dark web scanning, and instant credential rotation. We also provide breach impact reports and automated legal notifications.";
+    } else if (lowerMsg.includes('deepfake')) {
+      return "🎭 Deepfake detection: AI analyzes audio/video for synthetic artifacts. Our tool flags media manipulation in real-time during video calls or uploaded content.";
+    } else if (lowerMsg.includes('mitm') || lowerMsg.includes('man in the middle')) {
+      return "🌐 MITM attacks intercept communications. CyberShield uses certificate pinning, encrypted DNS, and anomaly detection to neutralize interception risks.";
+    } else if (lowerMsg.includes('how does your chatbot') || lowerMsg.includes('how ai')) {
+      return "Our chatbot uses transformer-based models + real-time threat intel feeds. You can ask about any attack, mitigation steps, or our service plans — always instant and up-to-date.";
+    } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
+      return "👋 Hello! I'm your cybersecurity co-pilot. Ask me about any attack type — phishing, ransomware, ATO, zero-days — or request a demo for your business.";
+    } else {
+      return "🛡️ I can give you details on all major cyber threats: phishing, ransomware, payment fraud, account takeover, zero-days, MITM, deepfakes & data breaches. What specific attack would you like to know more about?";
+    }
+  }
+
+  function sendMessageHandler() {
+    const message = chatInputField.value.trim();
+    if (!message) return;
+    appendChatMessage(message, true);
+    chatInputField.value = '';
+    setTimeout(() => {
+      const reply = getAIResponse(message);
+      appendChatMessage(reply, false);
+    }, 400);
+  }
+
+  sendChat.addEventListener('click', sendMessageHandler);
+  chatInputField.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessageHandler(); });
+
+  // Lead form submission handler
+  const leadForm = document.getElementById('securityLeadForm');
+  const feedbackSpan = document.getElementById('formFeedback');
+  leadForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('emailId').value.trim();
+    if (!name || !email) {
+      feedbackSpan.style.color = "#B91C1C";
+      feedbackSpan.innerText = "⚠️ Please provide your full name and email address.";
+      return;
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+      feedbackSpan.style.color = "#B91C1C";
+      feedbackSpan.innerText = "⚠️ Valid email required.";
+      return;
+    }
+    feedbackSpan.style.color = "#0F5C8F";
+    feedbackSpan.innerText = "✅ Thank you! A cybersecurity specialist will contact you within 2 hours. Meanwhile, try our AI chatbot!";
+    leadForm.reset();
+    setTimeout(() => { feedbackSpan.innerText = ""; }, 6000);
+  });
+</script>
+</body>
+</html>
